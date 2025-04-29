@@ -6,8 +6,6 @@ router.post('/login', () => {
     console.log('Rota de Login')
 });
 router.put('/:id', usuariosController.atualizarUsuario);
-router.post('/', () => {
-    console.log('Rota de Cadastrar')
-});
+router.post('/cadastrar', usuariosController.cadastrarUsuario);
 
 module.exports = router;

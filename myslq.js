@@ -10,7 +10,7 @@ const conection = mysql2.createConnection({
 
 exports.execute = (query, params = [], pool = conection) => {
     return new Promise((resolve, reject) => {
-        pool.query(query, params, (err, result) => {
+        pool.query(query, params, (error, result) => {
             if (error) {
                 reject(error)
             } else {
