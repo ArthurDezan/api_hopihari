@@ -1,14 +1,14 @@
 const mysql2 = require('mysql2')
 
-const pool = mysql2.createConnection({
+const conection = mysql2.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'root',
-    port: 3306,
+    port: 3307,
     database: 'hopihari_db'
 })
 
-xports.execute = (query, params = [], pool = pool) => {
+exports.execute = (query, params = [], pool = conection) => {
     return new Promise((resolve, reject) => {
         pool.query(query, params, (err, result) => {
             if (error) {
