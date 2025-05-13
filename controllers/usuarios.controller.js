@@ -12,7 +12,7 @@ exports.cadastrarUsuario = async (req, res) => {
         return res.status(201).send({ "Mensagem": "Usuário cadastrado com sucesso!", "Resultado": resultado });
 
     } catch (error) {
-        return res.status(500).send({ "Mensagem": error })
+        return res.status(500).send(error)
     }
 }
 
@@ -30,7 +30,7 @@ exports.atualizarUsuario = async (req, res) => {
         return res.status(201).send({ "Mensagem": "Usuário atualizado com sucesso!", "Resultado": resultado });
 
     } catch (error) {
-        return res.status(500).send({ "Mensagem": error })
+        return res.status(500).send(error)
     }
 }
 
@@ -50,6 +50,6 @@ exports.login = async (req, res) => {
         return res.status(200).send({ "Mensagem": "Usuário logado com sucesso!", "Token": token });
 
     } catch (error) {
-        return res.status(500).send({ "Error": error.message })
+        return res.status(500).send(error.message)
     }
 }

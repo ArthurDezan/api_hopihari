@@ -9,6 +9,6 @@ exports.entrarfila = async (req, res, next) => {
         return res.status(201).send({ "Mensagem": "Usuário entrou na fila com sucesso!", "Resultado": resultado });
 
     } catch (error) {
-        return res.status(500).send({ "Mensagem": error })
+        return res.status(500).send(error)
     }
 }
