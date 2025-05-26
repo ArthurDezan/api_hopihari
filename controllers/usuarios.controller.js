@@ -45,7 +45,14 @@ exports.login = async (req, res) => {
         if (!match) {
             return res.status(401).send({ "Mensagem": "Senha incorreta" });
         }
-        const token = jwt.sign({ id: usuario[0].id, first_name: usuario[0].first_name, last_name: usuario[0].last_name, email: usuario[0].email, birth_date: usuario[0].birth_date }, 'senhajwt');
+        const token = jwt.sign({ 
+            id: usuario[0].id, 
+            first_name: usuario[0].first_name, 
+            last_name: usuario[0].last_name, 
+            email: usuario[0].email, 
+            birth_date: usuario[0].birth_date, 
+            admin: usuario[0].admin}, 
+        'senhajwt');
 
         return res.status(200).send({ "Mensagem": "Usuário logado com sucesso!", "Token": token });
 
