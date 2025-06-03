@@ -21,11 +21,18 @@ exports.atualizarUsuario = async (req, res) => {
         const idUsuario = Number(req.params.id);
         const resultado = await mysql.execute(
             `update users
-            set name = ?, 
-	        email = ?,
-            password = ?
-            where id = ?;`,
-            [req.body.name, req.body.email, req.body.password, idUsuario]
+            set first_name = '?',
+            last_name = '?',
+            phone = '?',
+            birth_date = '?'
+            where id = ?`,
+            [
+             req.body.first_name,
+             req.body.last_name, 
+             req.body.phone,
+             req.body.birth_date,
+             res.locals.idUsuario
+            ]
         );
         return res.status(201).send({ "Mensagem": "Usuário atualizado com sucesso!", "Resultado": resultado });
 
